@@ -38,3 +38,22 @@ if st.button("Predict Survival"):
         st.success(f"The passenger is likely to survive. Probability: {prediction_prob:.2f}")
     else:
         st.error(f"The passenger is unlikely to survive. Probability: {prediction_prob:.2f}")
+
+import streamlit as st
+import pickle
+import os
+
+# Check if the model file exists
+model_path = "titanic_model.pkl"
+
+if os.path.exists(model_path):
+    try:
+        with open(model_path, "rb") as model_file:
+            model = pickle.load(model_file)
+        st.success("✅ Model loaded successfully!")
+    except Exception as e:
+        st.error(f"❌ Error loading model: {e}")
+else:
+    st.error(f"❌ Model file '{model_path}' not found! Upload it to the correct path.")
+
+
