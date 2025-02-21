@@ -42,7 +42,3 @@ if st.button("Predict Survival"):
         st.success(f"🎉 The passenger is likely to survive! Probability: {prediction_prob:.2f}")
     else:
         st.error(f"💀 The passenger is unlikely to survive. Probability: {prediction_prob:.2f}")
-# Save the scaler
-with open("scaler.pkl", "wb") as file:
-    pickle.dump(scaler, file)
-
