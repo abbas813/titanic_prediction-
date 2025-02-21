@@ -31,9 +31,6 @@ model = LogisticRegression()
 model.fit(X_train_scaled, y_train)
 
 
-# Save the scaler
-with open("scaler.pkl", "wb") as file:
-    pickle.dump(scaler, file)
 
 # Evaluate model
 y_pred = model.predict(X_test_scaled)
