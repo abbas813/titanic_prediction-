@@ -30,9 +30,16 @@ X_test_scaled = scaler.transform(X_test)
 model = LogisticRegression()
 model.fit(X_train_scaled, y_train)
 
+# ✅ Save trained model
+with open("logistic_model.pkl", "wb") as file:
+    pickle.dump(model, file)
 
+# ✅ Save scaler
+with open("scaler.pkl", "wb") as file:
+    pickle.dump(scaler, file)
 
 # Evaluate model
 y_pred = model.predict(X_test_scaled)
 accuracy = accuracy_score(y_test, y_pred)
+
 print(f"✅ Model trained and saved successfully! Accuracy: {accuracy:.2f}")
