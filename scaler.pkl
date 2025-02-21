@@ -1,0 +1,20 @@
+import pandas as pd
+import pickle
+from sklearn.preprocessing import StandardScaler
+
+# Load dataset
+df = pd.read_csv("Titanic_train.csv")
+
+# Define the same features used during model training
+features = ["Pclass", "Age", "SibSp", "Parch", "Fare"]
+df = df[features].dropna()
+
+# Fit the scaler
+scaler = StandardScaler()
+scaler.fit(df)
+
+# Save the scaler
+with open("scaler.pkl", "wb") as file:
+    pickle.dump(scaler, file)
+
+print("✅ Scaler saved successfully as scaler.pkl")
