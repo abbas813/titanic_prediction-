@@ -1,20 +1,21 @@
-import pandas as pd
+
 import pickle
+import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-# Load dataset
+# Load the Titanic dataset
 df = pd.read_csv("Titanic_train.csv")
 
-# Define the same features used during model training
+# Select relevant features (modify as needed)
 features = ["Pclass", "Age", "SibSp", "Parch", "Fare"]
 df = df[features].dropna()
 
-# Fit the scaler
+# Train a StandardScaler
 scaler = StandardScaler()
 scaler.fit(df)
 
-# Save the scaler
+# Save the trained scaler as a pickle file
 with open("scaler.pkl", "wb") as file:
     pickle.dump(scaler, file)
 
-print("✅ Scaler saved successfully as scaler.pkl")
+print("✅ Scaler file saved successfully as scaler.pkl")
