@@ -1,10 +1,3 @@
-import pickle
-
-with open("logistic_model.pkl", "rb") as file:
-    model = pickle.load(file)
-
-print("✅ Model loaded successfully!")
-
 import pandas as pd
 import pickle
 from sklearn.model_selection import train_test_split
